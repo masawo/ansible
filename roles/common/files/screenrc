@@ -1,0 +1,14 @@
+escape ^t^t
+vbell off
+
+deflogin off
+bell "Bell in window %."
+activity "Activity in window %."
+autodetach on
+termcapinfo  xterm|kterm|kterm-color 'hs:ts=\E]2;:fs=\007:ds=\E]0;screen\007'
+terminfo xterm|kterm|kterm-color XT # for mice
+shell -$SHELL
+defscrollback 1000
+defhstatus "screen [^En:^Et] <${USER}@${HOST}:${PWD}>"
+#hardstatus string "screen@%H[%n] %h"
+hardstatus string "%m/%d %c [%n:%Lw] %H:%h"

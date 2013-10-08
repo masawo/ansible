@@ -1,4 +1,9 @@
 - hosts: all
   sudo: yes
   roles:
-    - ruby
+    #- ruby
+
+- hosts: all
+  user: vagrant
+  roles:
+    - common
