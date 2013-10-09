@@ -1,18 +1,16 @@
-- name: put .screenrc
-  copy: src=screenrc dest=~/.screenrc
+- name: apt-get update
+  command: apt-get update
 
-- name: put .vimrc
-  copy: src=vimrc dest=~/.vimrc
+- name: install mysql
+  apt: name=$item state=installed
+  with_items:
+    - libmysqlclient-dev
+    - mysql-server-5.5
+    - mysql-client-5.5
+    - redis-server
+    - monit
+    - memcached
+    - mongodb-server
 
-- name: clone ctrlp
-  git: repo=git://github.com/kien/ctrlp.vim.git dest=~/.vim/bundle/ctrlp.vim
-
-- name: clone neobundle
-  git: repo=git://github.com/Shougo/neobundle.vim.git dest=~/.vim/bundle/neobundle.vim
-
-- name: clone nerdtree
-  git: repo=git://github.com/scrooloose/nerdtree.git dest=~/.vim/bundle/nerdtree
-
-- name: clone syntastic
-  git: repo=git://github.com/scrooloose/syntastic.git dest=~/.vim/bundle/syntastic
-
+- name: set redis.monitrc
+  copy: src=redis.monitrc dest=/etc/monit/conf.d
