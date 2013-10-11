@@ -14,7 +14,7 @@ http://yteraoka.github.io/ansible-tutorial/#server-setup-using-vagrant
 
 ## ansibleの最新版を入れる
 
-    # sudo apt-get install python-software-properties
+    sudo apt-get install software-properties-common
     sudo add-apt-repository ppa:rquillo/ansible
     sudo apt-get update
     sudo apt-get install ansible -y
